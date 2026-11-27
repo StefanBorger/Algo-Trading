@@ -5,6 +5,7 @@ mit optionalem Trendfilter (RSI oder ADX), plus vier weitere Strategie-Modelle z
 Vor- und Nachteile aller Modelle: [docs/Strategien.md](docs/Strategien.md).
 Analyse von 10 fremden, veröffentlichten Modellen mit Quellen: [docs/FremdeModelle.md](docs/FremdeModelle.md).
 Fertige, herunterladbare EAs mit Testreihen, bewertet und gerankt: [docs/FertigeEAs.md](docs/FertigeEAs.md).
+**Schritt-für-Schritt-Anleitung für MT5 (Installieren, Kompilieren, Backtest, Optimierung): [docs/MT5-Anleitung.md](docs/MT5-Anleitung.md).**
 
 ## Inhalt
 
@@ -18,10 +19,13 @@ Fertige, herunterladbare EAs mit Testreihen, bewertet und gerankt: [docs/Fertige
 | `MQL5/Include/AlgoTrading/StrategyCommon.mqh` | Gemeinsame Bausteine der Modelle A–D (Wilder-ATR, Positionsgröße, Orders, OnTester) |
 | `docs/Strategien.md` | Beschreibung und Vergleich aller Modelle |
 | `docs/FremdeModelle.md` | 10 fremde Modelle (Quelle, Datum, Performance, MT5-Eignung) |
+| `docs/MT5-Anleitung.md` | Anleitung: EAs in MT5 installieren, kompilieren, backtesten, optimieren |
 | `docs/FertigeEAs.md` | ~30 fertige EAs/Systeme mit Testreihen, Glaubwürdigkeit, Ranking |
 | `third_party/geraked-metatrader5/` | 12 freie MT5-EAs + 2 Vorlagen von Geraked (MIT), Original-Reports mit Grid |
 
 ## Installation
+
+Ausführlich inkl. Backtest, Optimierung und Fehlerhilfe: [docs/MT5-Anleitung.md](docs/MT5-Anleitung.md).
 
 1. Den Ordner `MQL5` aus dem Repo in den `<MT5-Datenordner>` kopieren (Datei → Dateiordner öffnen),
    so dass die EAs unter `MQL5/Experts/` und `StrategyCommon.mqh` unter `MQL5/Include/AlgoTrading/` liegen.
