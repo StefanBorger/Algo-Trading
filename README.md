@@ -1,17 +1,26 @@
 # Algo-Trading
 
 Nachbau der beiden originalen Turtle-Trading-Systeme als Expert Advisor für MetaTrader 5,
-mit optionalem Trendfilter (RSI oder ADX).
+mit optionalem Trendfilter (RSI oder ADX), plus vier weitere Strategie-Modelle zum Vergleich.
+Vor- und Nachteile aller Modelle: [docs/Strategien.md](docs/Strategien.md).
 
 ## Inhalt
 
 | Datei | Beschreibung |
 |---|---|
 | `MQL5/Experts/TurtleEA.mq5` | Expert Advisor (System 1 und 2, Filter, eigenes Optimierungskriterium) |
+| `MQL5/Experts/MACrossEA.mq5` | Modell A: MA-Crossover-Trendfolge mit ATR-Trailing-Stop |
+| `MQL5/Experts/KeltnerBreakoutEA.mq5` | Modell B: Keltner-Kanal-Ausbruch, optional Bollinger-Squeeze |
+| `MQL5/Experts/MeanReversionEA.mq5` | Modell C: RSI(2)-Mean-Reversion mit SMA-200- und ADX-Filter |
+| `MQL5/Experts/MomentumEA.mq5` | Modell D: Zeitreihen-Momentum mit monatlichem Rebalancing |
+| `MQL5/Include/AlgoTrading/StrategyCommon.mqh` | Gemeinsame Bausteine der Modelle A–D (Wilder-ATR, Positionsgröße, Orders, OnTester) |
+| `docs/Strategien.md` | Beschreibung und Vergleich aller Modelle |
 
 ## Installation
 
-1. `TurtleEA.mq5` nach `<MT5-Datenordner>/MQL5/Experts/` kopieren (Datei → Dateiordner öffnen).
+1. Den Ordner `MQL5` aus dem Repo in den `<MT5-Datenordner>` kopieren (Datei → Dateiordner öffnen),
+   so dass die EAs unter `MQL5/Experts/` und `StrategyCommon.mqh` unter `MQL5/Include/AlgoTrading/` liegen.
+   Die Modelle A–D brauchen die Include-Datei, der `TurtleEA` nicht.
 2. In MetaEditor öffnen und mit F7 kompilieren.
 3. Im Strategietester (Strg+R) den EA auswählen.
 
@@ -86,6 +95,17 @@ Der Filter gilt nur für den Ersteinstieg, nicht für Nachkäufe.
 6. Startkapital groß genug wählen, dass auch bei kleinem N mindestens das Mindestvolumen
    herauskommt (sonst wird nicht gehandelt).
 
+## Gemeinsame Regeln der Modelle A–D
+
+- Signale auf geschlossenen Bars von `InpTimeframe`; gehandelt wird beim ersten Tick der neuen Bar.
+- Eine Position pro EA (kein Pyramiding). Jeder EA hat eine eigene Magic Number
+  (20261201–20261204), damit mehrere Modelle parallel auf einem Konto laufen können.
+- `InpDirection`: Long und Short, nur Long oder nur Short (z. B. für Aktien).
+- Positionsgröße: A–C riskieren `InpRiskPercent` % der Equity bis zum Anfangsstop.
+  D (Momentum) dimensioniert wie ein Turtle-Unit: 1 ATR Bewegung = `InpRiskPercent` %.
+- Stop beim Broker, zusätzlich tickgenau intern geprüft (falls der Broker-Mindestabstand das Setzen verhindert).
+- `OnTester` identisch zum TurtleEA (Gewinn ÷ Equity-Drawdown ab `InpMinTrades`).
+
 ## Bekannte Einschränkungen
 
 - **Sekunden-Charts** gibt es in MT5 nicht nativ. Dafür bräuchte man ein Custom Symbol
@@ -98,4 +118,6 @@ Der Filter gilt nur für den Ersteinstieg, nicht für Nachkäufe.
 - **Netting-Konten:** Nachkäufe werden zu einer Position zusammengefasst; die Unit-Zahl
   führt der EA intern. Nach einem Neustart wird sie bei Netting nur als 1 Unit rekonstruiert.
 - Der Code wurde ohne MetaEditor geschrieben und per Review geprüft; das erste Kompilieren
-  steht noch aus.
+  steht noch aus (gilt für alle EAs).
+- Modelle A–D: Nach einem Neustart wird beim MomentumEA sofort neu entschieden
+  (Rebalancing-Zähler startet neu).
