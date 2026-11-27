@@ -19,7 +19,7 @@ Fertige, herunterladbare EAs mit Testreihen, bewertet und gerankt: [docs/Fertige
 | `docs/Strategien.md` | Beschreibung und Vergleich aller Modelle |
 | `docs/FremdeModelle.md` | 10 fremde Modelle (Quelle, Datum, Performance, MT5-Eignung) |
 | `docs/FertigeEAs.md` | ~30 fertige EAs/Systeme mit Testreihen, Glaubwürdigkeit, Ranking |
-| `third_party/geraked-metatrader5/` | 14 freie MT5-EAs von Geraked (MIT), Original-Reports mit Grid |
+| `third_party/geraked-metatrader5/` | 12 freie MT5-EAs + 2 Vorlagen von Geraked (MIT), Original-Reports mit Grid |
 
 ## Installation
 
