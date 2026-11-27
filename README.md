@@ -4,6 +4,7 @@ Nachbau der beiden originalen Turtle-Trading-Systeme als Expert Advisor für Met
 mit optionalem Trendfilter (RSI oder ADX), plus vier weitere Strategie-Modelle zum Vergleich.
 Vor- und Nachteile aller Modelle: [docs/Strategien.md](docs/Strategien.md).
 Analyse von 10 fremden, veröffentlichten Modellen mit Quellen: [docs/FremdeModelle.md](docs/FremdeModelle.md).
+Fertige, herunterladbare EAs mit Testreihen, bewertet und gerankt: [docs/FertigeEAs.md](docs/FertigeEAs.md).
 
 ## Inhalt
 
@@ -17,6 +18,8 @@ Analyse von 10 fremden, veröffentlichten Modellen mit Quellen: [docs/FremdeMode
 | `MQL5/Include/AlgoTrading/StrategyCommon.mqh` | Gemeinsame Bausteine der Modelle A–D (Wilder-ATR, Positionsgröße, Orders, OnTester) |
 | `docs/Strategien.md` | Beschreibung und Vergleich aller Modelle |
 | `docs/FremdeModelle.md` | 10 fremde Modelle (Quelle, Datum, Performance, MT5-Eignung) |
+| `docs/FertigeEAs.md` | ~30 fertige EAs/Systeme mit Testreihen, Glaubwürdigkeit, Ranking |
+| `third_party/geraked-metatrader5/` | 14 freie MT5-EAs von Geraked (MIT), Original-Reports mit Grid |
 
 ## Installation
 
