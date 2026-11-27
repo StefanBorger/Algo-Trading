@@ -3,6 +3,7 @@
 Nachbau der beiden originalen Turtle-Trading-Systeme als Expert Advisor für MetaTrader 5,
 mit optionalem Trendfilter (RSI oder ADX), plus vier weitere Strategie-Modelle zum Vergleich.
 Vor- und Nachteile aller Modelle: [docs/Strategien.md](docs/Strategien.md).
+Analyse von 10 fremden, veröffentlichten Modellen mit Quellen: [docs/FremdeModelle.md](docs/FremdeModelle.md).
 
 ## Inhalt
 
@@ -15,6 +16,7 @@ Vor- und Nachteile aller Modelle: [docs/Strategien.md](docs/Strategien.md).
 | `MQL5/Experts/MomentumEA.mq5` | Modell D: Zeitreihen-Momentum mit monatlichem Rebalancing |
 | `MQL5/Include/AlgoTrading/StrategyCommon.mqh` | Gemeinsame Bausteine der Modelle A–D (Wilder-ATR, Positionsgröße, Orders, OnTester) |
 | `docs/Strategien.md` | Beschreibung und Vergleich aller Modelle |
+| `docs/FremdeModelle.md` | 10 fremde Modelle (Quelle, Datum, Performance, MT5-Eignung) |
 
 ## Installation
 
